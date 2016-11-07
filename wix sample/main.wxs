@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix 
+   xmlns="http://schemas.microsoft.com/wix/2006/wi"
+   xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+	<Product
+      Id="*"
+      Language="1033"
+      Manufacturer="Autodesk"
+      Name="Demo for Krptron Team"
+      Version="1.0.0"
+      UpgradeCode="{58D37288-20D0-4A8F-B5DB-1FCB278597DF}">
+	  
+	    <Package InstallerVersion="500" Compressed="yes" Platform="x64" />
+		<Media Id="1" Cabinet="Setup.cab" EmbedCab="yes" />
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<?include file.wxi ?>
+		</Directory>
+		
+		<Feature Id="DefaultFeature" Level="1">
+			<ComponentRef Id="demofile" />
+		</Feature>
+	</Product>
+</Wix>

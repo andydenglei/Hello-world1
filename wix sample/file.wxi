@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<Include>
+  <Directory Id="CommonAppDataFolder">
+	<Directory Id="Roamer" Name="Autodesk">
+	     <Component Win64="yes" Guid="{EF1A4DC0-1EDE-4ACD-B17E-9C366483B3A3}" Id="demofile">
+			<File Source="demo.txt" />
+		</Component>
+	</Directory>
+  </Directory>
+</Include>
