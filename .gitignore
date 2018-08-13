@@ -50,3 +50,7 @@ Temporary Items
 lpng1634/projects/vstudio/Debug/*.*
 lpng1634/projects/vstudio/zlib/Debug/*.*
 
+lpng1634/projects/vstudio/vstudio.opensdf
+lpng1634/projects/vstudio/vstudio.sdf
+*.sdf
+lpng1634/projects/vstudio/vstudio.v11.suo

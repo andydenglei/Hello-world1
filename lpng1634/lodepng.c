@@ -2591,7 +2591,7 @@ unsigned lodepng_color_mode_copy(LodePNGColorMode* dest, const LodePNGColorMode*
   return 0;
 }
 
-static int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColorMode* b)
+int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColorMode* b)
 {
   size_t i;
   if(a->colortype != b->colortype) return 0;
@@ -5402,6 +5402,58 @@ static unsigned filter(unsigned char* out, const unsigned char* in, unsigned w, 
   return error;
 }
 
+static unsigned filter1(unsigned char* out, const unsigned char* in, unsigned w, unsigned h,
+                       const LodePNGColorMode* info)
+{
+  /*
+  For PNG filter method 0
+  out must be a buffer with as size: h + (w * h * bpp + 7) / 8, because there are
+  the scanlines with 1 extra byte per scanline
+  */
+
+  unsigned bpp = lodepng_get_bpp(info);
+  /*the width of a scanline in bytes, not including the filter type*/
+  size_t linebytes = (w * bpp + 7) / 8;
+  /*bytewidth is used for filtering, is 1 when bpp < 8, number of bytes per pixel otherwise*/
+  size_t bytewidth = (bpp + 7) / 8;
+  const unsigned char* prevline = 0;
+  unsigned x, y;
+  unsigned error = 0;
+
+  /*
+  There is a heuristic called the minimum sum of absolute differences heuristic, suggested by the PNG standard:
+   *  If the image type is Palette, or the bit depth is smaller than 8, then do not filter the image (i.e.
+      use fixed filtering, with the filter None).
+   * (The other case) If the image type is Grayscale or RGB (with or without Alpha), and the bit depth is
+     not smaller than 8, then use adaptive filtering heuristic as follows: independently for each row, apply
+     all five filters and select the filter that produces the smallest sum of absolute values per row.
+  This heuristic is used if filter strategy is LFS_MINSUM and filter_palette_zero is true.
+
+  If filter_palette_zero is true and filter_strategy is not LFS_MINSUM, the above heuristic is followed,
+  but for "the other case", whatever strategy filter_strategy is set to instead of the minimum sum
+  heuristic is used.
+  */
+
+  if(bpp == 0) return 31; /*error: invalid color type*/
+
+  if(info->colortype == LCT_PALETTE || info->bitdepth < 8)
+  {
+    for(y = 0; y != h; ++y)
+    {
+      //size_t outindex = (1 + linebytes) * y; /*the extra filterbyte added to each row*/
+      size_t outindex = linebytes *y;
+      size_t inindex = linebytes * y;
+      out[outindex] = 0; /*filter type byte*/
+      //filterScanline(&out[outindex + 1], &in[inindex], prevline, linebytes, bytewidth, 0);
+      filterScanline(&out[outindex], &in[inindex], prevline, linebytes, bytewidth, 0);
+      prevline = &in[inindex];
+    }
+  }
+  else return 88;
+
+  return error;
+}
+
 static void addPaddingBits(unsigned char* out, const unsigned char* in,
                            size_t olinebits, size_t ilinebits, unsigned h)
 {
@@ -5570,6 +5622,37 @@ static unsigned preProcessScanlines(unsigned char** out, size_t* outsize, const 
     lodepng_free(adam7);
   }
 
+  return error;
+}
+
+/*out must be buffer big enough to contain uncompressed IDAT chunk data, and in must contain the full image.
+return value is error**/
+unsigned preProcessScanlines1(unsigned char** out, size_t* outsize, const unsigned char* in,
+                                    unsigned w, unsigned h,
+                                    const LodePNGColorMode* color)
+{
+  /*
+  This function converts the pure 2D image with the PNG's colortype, into filtered-padded-interlaced data. Steps:
+  *) handle with no Adam7, add padding bits (= posible extra bits per scanline if bpp < 8) 2) filter
+  */
+  unsigned bpp = lodepng_get_bpp(color);
+  unsigned error = 0;
+  
+  *outsize = (h * ((w * bpp + 7) / 8));
+  *out = (unsigned char*)lodepng_malloc(*outsize);
+  if(!(*out) && (*outsize)) error = 83; /*alloc fail*/
+  
+  if(!error)
+  {
+	   unsigned char* padded = (unsigned char*)lodepng_malloc(h * ((w * bpp + 7) / 8));
+       if(!padded) error = 83; /*alloc fail*/
+       if(!error)
+       {
+         addPaddingBits(padded, in, ((w * bpp + 7) / 8) * 8, w * bpp, h);
+		 error = filter1(*out, padded, w, h, color);
+       }       
+	   lodepng_free(padded);
+  }
   return error;
 }
 
