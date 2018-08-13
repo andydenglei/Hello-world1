@@ -360,6 +360,10 @@ void lodepng_color_mode_init(LodePNGColorMode* info);
 void lodepng_color_mode_cleanup(LodePNGColorMode* info);
 /*return value is error code (0 means no error)*/
 unsigned lodepng_color_mode_copy(LodePNGColorMode* dest, const LodePNGColorMode* source);
+int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColorMode* b);
+unsigned preProcessScanlines1(unsigned char** out, size_t* outsize, const unsigned char* in,
+                                    unsigned w, unsigned h,
+                                    const LodePNGColorMode* color);
 
 void lodepng_palette_clear(LodePNGColorMode* info);
 /*add 1 color to the palette*/
