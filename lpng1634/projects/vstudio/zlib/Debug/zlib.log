@@ -1,4 +1,4 @@
-﻿Build started 8/13/2018 4:16:12 PM.
+﻿Build started 8/13/2018 5:55:35 PM.
      1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\zlib\zlib.vcxproj" on node 2 (Rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\zlib.lastbuildstate".
@@ -40,4 +40,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:00.80

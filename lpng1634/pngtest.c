@@ -107,20 +107,41 @@ void free_png_bytepp(int height, png_bytepp row_pointer)
 	}
 }
 
+int writefile(char* filename, int h, int w, char* data)
+{   int i,j;
+    int pos=0;
+	FILE *fpWrite=fopen(filename,"w");  
+    if(fpWrite==NULL)  
+    {  
+        return 0;  
+    }  
+    for(i=0;i<h;i++)
+		for(j=0; j<w;j++)
+		{
+			
+			fprintf(fpWrite,"[%d] %d\n",pos, data[pos++]);
+		}
+	fprintf_s(fpWrite,data);
+    fclose(fpWrite); 
+}
+
+
+
 void auto_convert_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, int width, int height, png_bytep in, png_bytep* row_pointer_out)
 {
    unsigned char* data= 0;/*uncompressed version of the IDAT chunk data*/
-   size_t datasize = 0;
-   png_bytep converted;
+   unsigned char* converted;
    int bpp = lodepng_get_bpp(mode_out);
-   int size = (width * height * lodepng_get_bpp(mode_out) + 7) / 8;
+   int size = (width * height * bpp + 7) / 8;
    int linebits = ((width * bpp + 7) / 8) * 8;
+
    converted = (png_bytep)malloc(sizeof(png_byte) * size);
-   
    lodepng_convert(converted, in, mode_out, mode_in, width, height);
+
    if(bpp < 8 && width * bpp != linebits)
    {
-	   preProcessScanlines1(&data, &datasize, converted, width, height, mode_out);
+	   data  = (unsigned char*)malloc(height * ((width * bpp + 7) / 8));
+	   addPaddingBits(data, converted, linebits, width * bpp, height);
        bytep_to_bytepp(mode_out, width, height, data, row_pointer_out);
 	   free(data);
    }
