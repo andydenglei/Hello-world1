@@ -1,0 +1,22 @@
+﻿Build started 8/13/2018 10:36:39 AM.
+     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" on node 3 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\pngtest.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Debug\pngtest.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /I..\..\..\scripts /ID:\PNG /Zi /nologo /W0 /WX /Od /Oi /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /fp:except- /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /FR"Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /analyze- /errorReport:prompt ..\..\..\pngtest.c
+         pngtest.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\\" libpng16.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.lib" /MACHINE:X86 /SAFESEH Debug\pngtest.obj
+         pngtest.vcxproj -> D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.exe
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.bsc" Debug\pngtest.sbr
+       FinalizeBuildStatus:
+         Deleting file "Debug\pngtest.unsuccessfulbuild".
+         Touching "Debug\pngtest.lastbuildstate".
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.37

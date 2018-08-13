@@ -1,0 +1,40 @@
+﻿Build started 7/16/2018 11:12:49 AM.
+     1>Project "D:\PNG\lpng1634\projects\vstudio\libpng\libpng.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\libpng.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\PNG\lpng1634\projects\vstudio\Release\libpng16.dll" /VERSION:"16" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\PNG\lpng1634\projects\vstudio\Release\ zlib.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\PNG\lpng1634\projects\vstudio\Release\libpng16.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\PNG\lpng1634\projects\vstudio\Release\libpng16.lib" /MACHINE:X86 /SAFESEH /DLL Release\pngwin.res
+         Release\png.obj
+         Release\pngerror.obj
+         Release\pngget.obj
+         Release\pngmem.obj
+         Release\pngpread.obj
+         Release\pngread.obj
+         Release\pngrio.obj
+         Release\pngrtran.obj
+         Release\pngrutil.obj
+         Release\pngset.obj
+         Release\pngtrans.obj
+         Release\pngwio.obj
+         Release\pngwrite.obj
+         Release\pngwtran.obj
+         Release\pngwutil.obj
+            Creating library D:\PNG\lpng1634\projects\vstudio\Release\libpng16.lib and object D:\PNG\lpng1634\projects\vstudio\Release\libpng16.exp
+         Generating code
+     1>d:\png\lpng1634\pngget.c(416): error C2220: warning treated as error - no 'executable' file generated
+     1>d:\png\lpng1634\pngget.c(405): error C2220: warning treated as error - no 'executable' file generated
+     1>d:\png\lpng1634\pngget.c(416): warning C4738: storing 32-bit float result in memory, possible loss of performance
+     1>d:\png\lpng1634\pngget.c(405): warning C4738: storing 32-bit float result in memory, possible loss of performance
+     1>d:\png\lpng1634\pngget.c(415): warning C4738: storing 32-bit float result in memory, possible loss of performance
+     1>d:\png\lpng1634\pngget.c(404): warning C4738: storing 32-bit float result in memory, possible loss of performance
+     1>LINK : fatal error LNK1257: code generation failed
+     1>Done Building Project "D:\PNG\lpng1634\projects\vstudio\libpng\libpng.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.01

@@ -1,0 +1,19 @@
+﻿Build started 8/13/2018 10:36:34 AM.
+     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pnglibconf\pnglibconf.vcxproj" on node 3 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Release\pnglibconf.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Release\pnglibconf.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       FinalizeBuildStatus:
+         Deleting file "Release\pnglibconf.unsuccessfulbuild".
+         Touching "Release\pnglibconf.lastbuildstate".
+       CustomBuildStep:
+         Description: Generating pnglibconf.h
+         copy ..\..\..\scripts\pnglibconf.h.prebuilt ..\..\..\pnglibconf.h
+         :VCEnd
+                 1 file(s) copied.
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pnglibconf\pnglibconf.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.08

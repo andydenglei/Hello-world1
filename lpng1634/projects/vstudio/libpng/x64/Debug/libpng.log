@@ -1,0 +1,49 @@
+﻿Build started 7/12/2018 5:55:21 PM.
+     1>Project "D:\PNG\lpng1634\projects\vstudio\libpng\libpng.vcxproj" on node 2 (Rebuild target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\PNG\lpng1634\projects\vstudio\x64\Debug\".
+       InitializeBuildStatus:
+         Creating "x64\Debug\libpng.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /Zi /nologo /Wall /WX /Od /Oi /GL /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D _WINDLL /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy /fp:precise /fp:except- /Zc:wchar_t- /Zc:forScope /Yc"pngpriv.h" /Fp"x64\Debug\libpng16.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /FR"x64\Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /errorReport:prompt ..\..\..\png.c
+         png.c
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /Zi /nologo /Wall /WX /Od /Oi /GL /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D _WINDLL /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy /fp:precise /fp:except- /Zc:wchar_t- /Zc:forScope /Yu"pngpriv.h" /Fp"x64\Debug\libpng16.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /FR"x64\Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /errorReport:prompt ..\..\..\pngerror.c ..\..\..\pngget.c ..\..\..\pngmem.c ..\..\..\pngpread.c ..\..\..\pngread.c ..\..\..\pngrio.c ..\..\..\pngrtran.c ..\..\..\pngrutil.c ..\..\..\pngset.c ..\..\..\pngtrans.c ..\..\..\pngwio.c ..\..\..\pngwrite.c ..\..\..\pngwtran.c ..\..\..\pngwutil.c
+         pngerror.c
+         pngget.c
+         pngmem.c
+         pngpread.c
+         pngread.c
+         pngrio.c
+         pngrtran.c
+         pngrutil.c
+         pngset.c
+         pngtrans.c
+         pngwio.c
+         pngwrite.c
+         pngwtran.c
+         pngwutil.c
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /l"0x0409" /nologo /fo"x64\Debug\pngwin.res" ..\..\..\scripts\pngwin.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\PNG\lpng1634\projects\vstudio\x64\Debug\libpng16.dll" /VERSION:"16" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\PNG\lpng1634\projects\vstudio\x64\Debug\ zlib.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\PNG\lpng1634\projects\vstudio\x64\Debug\libpng16.pdb" /SUBSYSTEM:WINDOWS /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\PNG\lpng1634\projects\vstudio\x64\Debug\libpng16.lib" /MACHINE:X64 /DLL x64\Debug\pngwin.res
+         x64\Debug\png.obj
+         x64\Debug\pngerror.obj
+         x64\Debug\pngget.obj
+         x64\Debug\pngmem.obj
+         x64\Debug\pngpread.obj
+         x64\Debug\pngread.obj
+         x64\Debug\pngrio.obj
+         x64\Debug\pngrtran.obj
+         x64\Debug\pngrutil.obj
+         x64\Debug\pngset.obj
+         x64\Debug\pngtrans.obj
+         x64\Debug\pngwio.obj
+         x64\Debug\pngwrite.obj
+         x64\Debug\pngwtran.obj
+         x64\Debug\pngwutil.obj
+     1>LINK : fatal error LNK1181: cannot open input file 'zlib.lib'
+     1>Done Building Project "D:\PNG\lpng1634\projects\vstudio\libpng\libpng.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.88
