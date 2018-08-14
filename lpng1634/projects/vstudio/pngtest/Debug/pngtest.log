@@ -1,7 +1,7 @@
-﻿Build started 8/13/2018 6:16:54 PM.
+﻿Build started 8/14/2018 10:36:05 AM.
      1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
-         Touching "Debug\pngtest.unsuccessfulbuild".
+         Creating "Debug\pngtest.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /I..\..\..\scripts /Zi /nologo /W0 /WX /Od /Oi /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /fp:except- /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /FR"Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /analyze- /errorReport:prompt ..\..\..\lodepng.c ..\..\..\pngtest.c
          lodepng.c
@@ -20,4 +20,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.55
+Time Elapsed 00:00:02.81

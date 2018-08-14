@@ -141,7 +141,7 @@ void auto_convert_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, in
    if(bpp < 8 && width * bpp != linebits)
    {
 	   data  = (unsigned char*)malloc(height * ((width * bpp + 7) / 8));
-	   addPaddingBits(data, converted, linebits, width * bpp, height);
+	   addPaddingBits_vips(data, converted, linebits, width * bpp, height);
        bytep_to_bytepp(mode_out, width, height, data, row_pointer_out);
 	   free(data);
    }
@@ -473,7 +473,7 @@ int decode_png(char *file_path, LodePNGColorMode* mode_in, LodePNGColorMode* mod
 	lodepng_auto_choose_color(mode_out, (unsigned char*)in, width, height, mode_in);
 	
 	//if mode_out equal mode_in, no need do anything.
-	if(lodepng_color_mode_equal(mode_out, mode_in))
+	if(lodepng_color_mode_equal_vips(mode_out, mode_in))
 	{   
 		png_destroy_read_struct(&png_ptr, &info_ptr, 0);
 		fclose(pic_fp);

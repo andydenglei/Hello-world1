@@ -2604,7 +2604,7 @@ unsigned lodepng_color_mode_copy(LodePNGColorMode* dest, const LodePNGColorMode*
   return 0;
 }
 
-int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColorMode* b)
+static int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColorMode* b)
 {
   size_t i;
   if(a->colortype != b->colortype) return 0;
@@ -2622,6 +2622,11 @@ int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColorMode* 
     if(a->palette[i] != b->palette[i]) return 0;
   }
   return 1;
+}
+
+int lodepng_color_mode_equal_vips(const LodePNGColorMode* a, const LodePNGColorMode* b)
+{
+  return lodepng_color_mode_equal(a, b);
 }
 
 void lodepng_palette_clear(LodePNGColorMode* info)
@@ -5678,7 +5683,7 @@ static unsigned filter(unsigned char* out, const unsigned char* in, unsigned w, 
   return error;
 }
 
-void addPaddingBits(unsigned char* out, const unsigned char* in,
+static void addPaddingBits(unsigned char* out, const unsigned char* in,
                            size_t olinebits, size_t ilinebits, unsigned h)
 {
   /*The opposite of the removePaddingBits function
@@ -5698,6 +5703,12 @@ void addPaddingBits(unsigned char* out, const unsigned char* in,
     "Use of uninitialised value of size ###" warning from valgrind*/
     for(x = 0; x != diff; ++x) setBitOfReversedStream(&obp, out, 0);
   }
+}
+
+void addPaddingBits_vips(unsigned char* out, const unsigned char* in,
+                           size_t olinebits, size_t ilinebits, unsigned h)
+{
+  addPaddingBits(out, in, olinebits, ilinebits, h);
 }
 
 /*

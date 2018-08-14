@@ -360,9 +360,6 @@ void lodepng_color_mode_init(LodePNGColorMode* info);
 void lodepng_color_mode_cleanup(LodePNGColorMode* info);
 /*return value is error code (0 means no error)*/
 unsigned lodepng_color_mode_copy(LodePNGColorMode* dest, const LodePNGColorMode* source);
-int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColorMode* b);
-void addPaddingBits(unsigned char* out, const unsigned char* in,
-                           size_t olinebits, size_t ilinebits, unsigned h);
 
 void lodepng_palette_clear(LodePNGColorMode* info);
 /*add 1 color to the palette*/
@@ -984,6 +981,10 @@ unsigned compress(std::vector<unsigned char>& out, const std::vector<unsigned ch
 } /* namespace lodepng */
 #endif /*LODEPNG_COMPILE_CPP*/
 
+/* expose these functions for vips */
+int lodepng_color_mode_equal_vips(const LodePNGColorMode* a, const LodePNGColorMode* b);
+void addPaddingBits_vips(unsigned char* out, const unsigned char* in,
+                           size_t olinebits, size_t ilinebits, unsigned h);
 /*
 TODO:
 [.] test if there are no memory leaks or security exploits - done a lot but needs to be checked often
