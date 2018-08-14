@@ -220,11 +220,11 @@
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\lodepng.c" />
+    <ClCompile Include="..\..\..\lodepng\lodepng.c" />
     <ClCompile Include="..\..\..\pngtest.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\lodepng.h" />
+    <ClInclude Include="..\..\..\lodepng\lodepng.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

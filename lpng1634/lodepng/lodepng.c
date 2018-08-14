@@ -2624,7 +2624,7 @@ static int lodepng_color_mode_equal(const LodePNGColorMode* a, const LodePNGColo
   return 1;
 }
 
-int lodepng_color_mode_equal_vips(const LodePNGColorMode* a, const LodePNGColorMode* b)
+int lodepng_color_mode_equal_export(const LodePNGColorMode* a, const LodePNGColorMode* b)
 {
   return lodepng_color_mode_equal(a, b);
 }
@@ -5705,7 +5705,7 @@ static void addPaddingBits(unsigned char* out, const unsigned char* in,
   }
 }
 
-void addPaddingBits_vips(unsigned char* out, const unsigned char* in,
+void addPaddingBits_export(unsigned char* out, const unsigned char* in,
                            size_t olinebits, size_t ilinebits, unsigned h)
 {
   addPaddingBits(out, in, olinebits, ilinebits, h);

@@ -981,9 +981,9 @@ unsigned compress(std::vector<unsigned char>& out, const std::vector<unsigned ch
 } /* namespace lodepng */
 #endif /*LODEPNG_COMPILE_CPP*/
 
-/* expose these functions for vips */
-int lodepng_color_mode_equal_vips(const LodePNGColorMode* a, const LodePNGColorMode* b);
-void addPaddingBits_vips(unsigned char* out, const unsigned char* in,
+/* export these functions for vips */
+int lodepng_color_mode_equal_export(const LodePNGColorMode* a, const LodePNGColorMode* b);
+void addPaddingBits_export(unsigned char* out, const unsigned char* in,
                            size_t olinebits, size_t ilinebits, unsigned h);
 /*
 TODO:

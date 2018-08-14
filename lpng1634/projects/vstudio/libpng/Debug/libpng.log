@@ -1,4 +1,4 @@
-﻿Build started 8/13/2018 6:12:46 PM.
+﻿Build started 8/14/2018 10:56:11 AM.
      1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\libpng\libpng.vcxproj" on node 2 (Rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\libpng.lastbuildstate".
@@ -54,4 +54,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.04
+Time Elapsed 00:00:04.59
