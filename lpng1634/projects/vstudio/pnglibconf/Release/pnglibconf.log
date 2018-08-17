@@ -1,4 +1,4 @@
-﻿Build started 8/14/2018 10:56:10 AM.
+﻿Build started 8/17/2018 10:47:26 AM.
      1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pnglibconf\pnglibconf.vcxproj" on node 3 (Rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Release\pnglibconf.lastbuildstate".
@@ -16,4 +16,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.07
+Time Elapsed 00:00:00.24

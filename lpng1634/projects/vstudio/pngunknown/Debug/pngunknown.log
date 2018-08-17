@@ -1,30 +1,33 @@
-﻿Build started 7/14/2018 2:42:24 PM.
-     1>Project "D:\PNG\lpng1634\projects\vstudio\pngunknown\pngunknown.vcxproj" on node 4 (Build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 8/17/2018 10:47:34 AM.
+     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngunknown\pngunknown.vcxproj" on node 2 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\pngunknown.lastbuildstate".
+       InitializeBuildStatus:
          Creating "Debug\pngunknown.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /I..\..\..\scripts /Zi /nologo /Wall /WX /Od /Oi /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D PNG_USE_DLL /D _UNICODE /D UNICODE /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /fp:except- /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /FR"Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /analyze- /errorReport:prompt ..\..\..\contrib\libtests\pngunknown.c
+         pngunknown.c
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\PNG\lpng1634\projects\vstudio\Debug\ libpng16.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.lib" /MACHINE:X86 /SAFESEH Debug\pngunknown.obj
-         pngunknown.vcxproj -> D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\\" libpng16.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.lib" /MACHINE:X86 /SAFESEH Debug\pngunknown.obj
+         pngunknown.vcxproj -> D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe
        BscMake:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.bsc" Debug\pngunknown.sbr
        CustomBuildStep:
          Description: Executing PNG validation program
-         "D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe" --strict --default --touch "Debug\pngunknown.out" ../../../pngtest.png
+         "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe" --strict --default --touch "Debug\pngunknown.out" ../../../pngtest.png
          :VCEnd
-         PASS: D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe discard
-         PASS: D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe save
-         PASS: D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe if-safe
-         PASS: D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe vpAg
-         PASS: D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe sTER
-         PASS: D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe IDAT
-         PASS: D:\PNG\lpng1634\projects\vstudio\Debug\pngunknown.exe sAPI
+         PASS: D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe discard
+         PASS: D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe save
+         PASS: D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe if-safe
+         PASS: D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe vpAg
+         PASS: D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe sTER
+         PASS: D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe IDAT
+         PASS: D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngunknown.exe sAPI
        FinalizeBuildStatus:
          Deleting file "Debug\pngunknown.unsuccessfulbuild".
          Touching "Debug\pngunknown.lastbuildstate".
-     1>Done Building Project "D:\PNG\lpng1634\projects\vstudio\pngunknown\pngunknown.vcxproj" (Build target(s)).
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngunknown\pngunknown.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.46
+Time Elapsed 00:00:01.53

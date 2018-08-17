@@ -1,17 +1,20 @@
-﻿Build started 7/14/2018 2:42:23 PM.
-     1>Project "D:\PNG\lpng1634\projects\vstudio\pngvalid\pngvalid.vcxproj" on node 3 (Build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 8/17/2018 10:47:34 AM.
+     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngvalid\pngvalid.vcxproj" on node 4 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\pngvalid.lastbuildstate".
+       InitializeBuildStatus:
          Creating "Debug\pngvalid.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /I..\..\..\scripts /Zi /nologo /Wall /WX /Od /Oi /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D PNG_USE_DLL /D _UNICODE /D UNICODE /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /fp:except- /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /FR"Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /analyze- /errorReport:prompt ..\..\..\contrib\libtests\pngvalid.c
+         pngvalid.c
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\PNG\lpng1634\projects\vstudio\Debug\pngvalid.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\PNG\lpng1634\projects\vstudio\Debug\ libpng16.lib zlib.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\PNG\lpng1634\projects\vstudio\Debug\pngvalid.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\PNG\lpng1634\projects\vstudio\Debug\pngvalid.lib" /MACHINE:X86 /SAFESEH Debug\pngvalid.obj
-         pngvalid.vcxproj -> D:\PNG\lpng1634\projects\vstudio\Debug\pngvalid.exe
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngvalid.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\\" libpng16.lib zlib.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngvalid.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngvalid.lib" /MACHINE:X86 /SAFESEH Debug\pngvalid.obj
+         pngvalid.vcxproj -> D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngvalid.exe
        BscMake:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngvalid.bsc" Debug\pngvalid.sbr
        CustomBuildStep:
          Description: Executing PNG validation program
-         "D:\PNG\lpng1634\projects\vstudio\Debug\pngvalid.exe" --touch "Debug\pngvalid.out"
+         "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngvalid.exe" --touch "Debug\pngvalid.out"
          :VCEnd
          Gamma correction error summary
          
@@ -59,8 +62,8 @@
        FinalizeBuildStatus:
          Deleting file "Debug\pngvalid.unsuccessfulbuild".
          Touching "Debug\pngvalid.lastbuildstate".
-     1>Done Building Project "D:\PNG\lpng1634\projects\vstudio\pngvalid\pngvalid.vcxproj" (Build target(s)).
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngvalid\pngvalid.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:36.45
+Time Elapsed 00:00:36.12

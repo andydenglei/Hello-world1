@@ -1,4 +1,4 @@
-﻿Build started 8/14/2018 11:26:29 AM.
+﻿Build started 8/17/2018 10:54:14 AM.
      1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\pngtest.unsuccessfulbuild".
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.40
+Time Elapsed 00:00:02.33
