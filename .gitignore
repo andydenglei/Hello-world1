@@ -68,3 +68,5 @@ lpng1634/projects/vstudio/vstudio.sdf
 *.VC.VC.opendb
 **/debug/*
 **/release/*
+lpng1634/projects/vstudio/libpng/x64/Debug/libpng.log
+lpng1634/projects/vstudio/pngtest/x64/Debug/pngtest.log

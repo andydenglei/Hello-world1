@@ -1,6 +1,8 @@
-﻿Build started 8/27/2018 5:22:58 PM.
-     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\libpng\libpng.vcxproj" on node 2 (Build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 8/27/2018 5:25:39 PM.
+     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\libpng\libpng.vcxproj" on node 2 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Debug\libpng.lastbuildstate".
+       InitializeBuildStatus:
          Creating "x64\Debug\libpng.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /Zi /nologo /Wall /WX /Od /Oi /GL /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D _WINDLL /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy /fp:precise /fp:except- /Zc:wchar_t- /Zc:forScope /Yc"pngpriv.h" /Fp"x64\Debug\libpng16.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /FR"x64\Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /errorReport:prompt ..\..\..\png.c
@@ -48,8 +50,8 @@
        FinalizeBuildStatus:
          Deleting file "x64\Debug\libpng.unsuccessfulbuild".
          Touching "x64\Debug\libpng.lastbuildstate".
-     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\libpng\libpng.vcxproj" (Build target(s)).
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\libpng\libpng.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.38
+Time Elapsed 00:00:03.99
