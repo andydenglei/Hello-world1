@@ -1,21 +1,21 @@
-﻿Build started 8/17/2018 10:54:14 AM.
+﻿Build started 8/24/2018 5:54:06 PM.
      1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\pngtest.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /I..\..\..\scripts /Zi /nologo /W0 /WX /Od /Oi /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /fp:except- /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /FR"Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /analyze- /errorReport:prompt ..\..\..\pngtest.c
-         pngtest.c
+         All outputs are up-to-date.
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\\" libpng16.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.lib" /MACHINE:X86 /SAFESEH Debug\lodepng.obj
          Debug\pngtest.obj
-         pngtest.vcxproj -> D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.exe
-       BscMake:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.bsc" Debug\lodepng.sbr Debug\pngtest.sbr
-       FinalizeBuildStatus:
-         Deleting file "Debug\pngtest.unsuccessfulbuild".
-         Touching "Debug\pngtest.lastbuildstate".
-     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" (Build target(s)).
+     1>pngtest.obj : error LNK2019: unresolved external symbol _liq_attr_create referenced in function _auto_convert_platte_data
+     1>pngtest.obj : error LNK2019: unresolved external symbol _liq_image_create_rgba referenced in function _auto_convert_platte_data
+     1>pngtest.obj : error LNK2019: unresolved external symbol _liq_image_quantize referenced in function _auto_convert_platte_data
+     1>pngtest.obj : error LNK2019: unresolved external symbol _liq_set_dithering_level referenced in function _auto_convert_platte_data
+     1>pngtest.obj : error LNK2019: unresolved external symbol _liq_get_palette referenced in function _auto_convert_platte_data
+     1>pngtest.obj : error LNK2019: unresolved external symbol _liq_write_remapped_image referenced in function _auto_convert_platte_data
+     1>D:\GitHub\Hello-world1\lpng1634\projects\vstudio\Debug\pngtest.exe : fatal error LNK1120: 6 unresolved externals
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:02.33
+Time Elapsed 00:00:00.20

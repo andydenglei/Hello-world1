@@ -1,0 +1,25 @@
+﻿Build started 8/27/2018 3:42:08 PM.
+     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" on node 2 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Debug\pngtest.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "x64\Debug\pngtest.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"..\..\..\..\zlib-1.2.11" /I..\..\..\scripts /Zi /nologo /W0 /WX /Od /Oi /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /fp:except- /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /FR"x64\Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /errorReport:prompt ..\..\..\lodepng\lodepng.c ..\..\..\pngtest.c
+         lodepng.c
+         pngtest.c
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\pngtest.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\GitHub\Hello-world1\imagequant" /LIBPATH:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\\" libpng16.lib imagequant.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\pngtest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\pngtest.lib" /MACHINE:X64 x64\Debug\lodepng.obj
+         x64\Debug\pngtest.obj
+         pngtest.vcxproj -> D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\pngtest.exe
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\pngtest.bsc" x64\Debug\lodepng.sbr x64\Debug\pngtest.sbr
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\pngtest.unsuccessfulbuild".
+         Touching "x64\Debug\pngtest.lastbuildstate".
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\pngtest\pngtest.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.74

@@ -1,7 +1,7 @@
-﻿Build started 7/12/2018 5:55:21 PM.
-     1>Project "D:\PNG\lpng1634\projects\vstudio\libpng\libpng.vcxproj" on node 2 (Rebuild target(s)).
-     1>PrepareForBuild:
-         Creating directory "D:\PNG\lpng1634\projects\vstudio\x64\Debug\".
+﻿Build started 8/27/2018 3:42:04 PM.
+     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\libpng\libpng.vcxproj" on node 2 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Debug\libpng.lastbuildstate".
        InitializeBuildStatus:
          Creating "x64\Debug\libpng.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -25,7 +25,7 @@
        ResourceCompile:
          C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /l"0x0409" /nologo /fo"x64\Debug\pngwin.res" ..\..\..\scripts\pngwin.rc 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\PNG\lpng1634\projects\vstudio\x64\Debug\libpng16.dll" /VERSION:"16" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\PNG\lpng1634\projects\vstudio\x64\Debug\ zlib.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\PNG\lpng1634\projects\vstudio\x64\Debug\libpng16.pdb" /SUBSYSTEM:WINDOWS /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\PNG\lpng1634\projects\vstudio\x64\Debug\libpng16.lib" /MACHINE:X64 /DLL x64\Debug\pngwin.res
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\libpng16.dll" /VERSION:"16" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\\" zlib.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\libpng16.pdb" /SUBSYSTEM:WINDOWS /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\libpng16.lib" /MACHINE:X64 /DLL x64\Debug\pngwin.res
          x64\Debug\png.obj
          x64\Debug\pngerror.obj
          x64\Debug\pngget.obj
@@ -41,9 +41,17 @@
          x64\Debug\pngwrite.obj
          x64\Debug\pngwtran.obj
          x64\Debug\pngwutil.obj
-     1>LINK : fatal error LNK1181: cannot open input file 'zlib.lib'
-     1>Done Building Project "D:\PNG\lpng1634\projects\vstudio\libpng\libpng.vcxproj" (Rebuild target(s)) -- FAILED.
+            Creating library D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\libpng16.lib and object D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\libpng16.exp
+         Generating code
+         Finished generating code
+         libpng.vcxproj -> D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\libpng16.dll
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\libpng16.bsc" x64\Debug\png.sbr x64\Debug\pngerror.sbr x64\Debug\pngget.sbr x64\Debug\pngmem.sbr x64\Debug\pngpread.sbr x64\Debug\pngread.sbr x64\Debug\pngrio.sbr x64\Debug\pngrtran.sbr x64\Debug\pngrutil.sbr x64\Debug\pngset.sbr x64\Debug\pngtrans.sbr x64\Debug\pngwio.sbr x64\Debug\pngwrite.sbr x64\Debug\pngwtran.sbr x64\Debug\pngwutil.sbr
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\libpng.unsuccessfulbuild".
+         Touching "x64\Debug\libpng.lastbuildstate".
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\libpng\libpng.vcxproj" (Rebuild target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:01.88
+Time Elapsed 00:00:04.60

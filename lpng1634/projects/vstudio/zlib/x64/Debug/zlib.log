@@ -1,0 +1,41 @@
+﻿Build started 8/24/2018 5:57:42 PM.
+     1>Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\zlib\zlib.vcxproj" on node 2 (Rebuild target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Debug\zlib.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /Wall /WX /Od /D WIN32 /D _DEBUG /D _WINDOWS /D Z_SOLO /Gm- /EHsc /MDd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /FR"x64\Debug\\" /Gd /TC /wd4255 /wd4668 /wd4710 /wd4711 /wd4746 /wd4820 /wd4996 /wd4127 /wd4131 /wd4242 /wd4244 /errorReport:prompt "..\..\..\..\zlib-1.2.11\adler32.c" "..\..\..\..\zlib-1.2.11\compress.c" "..\..\..\..\zlib-1.2.11\crc32.c" "..\..\..\..\zlib-1.2.11\deflate.c" "..\..\..\..\zlib-1.2.11\infback.c" "..\..\..\..\zlib-1.2.11\inffast.c" "..\..\..\..\zlib-1.2.11\inflate.c" "..\..\..\..\zlib-1.2.11\inftrees.c" "..\..\..\..\zlib-1.2.11\trees.c" "..\..\..\..\zlib-1.2.11\uncompr.c" "..\..\..\..\zlib-1.2.11\zutil.c"
+         adler32.c
+         compress.c
+         crc32.c
+         deflate.c
+         infback.c
+         inffast.c
+         inflate.c
+         inftrees.c
+         trees.c
+         uncompr.c
+         zutil.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\zlib.lib" /NOLOGO /MACHINE:X64 x64\Debug\adler32.obj
+         x64\Debug\compress.obj
+         x64\Debug\crc32.obj
+         x64\Debug\deflate.obj
+         x64\Debug\infback.obj
+         x64\Debug\inffast.obj
+         x64\Debug\inflate.obj
+         x64\Debug\inftrees.obj
+         x64\Debug\trees.obj
+         x64\Debug\uncompr.obj
+         x64\Debug\zutil.obj
+         zlib.vcxproj -> D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\zlib.lib
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o"D:\GitHub\Hello-world1\lpng1634\projects\vstudio\x64\Debug\zlib.bsc" x64\Debug\adler32.sbr x64\Debug\compress.sbr x64\Debug\crc32.sbr x64\Debug\deflate.sbr x64\Debug\infback.sbr x64\Debug\inffast.sbr x64\Debug\inflate.sbr x64\Debug\inftrees.sbr x64\Debug\trees.sbr x64\Debug\uncompr.sbr x64\Debug\zutil.sbr
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\zlib.unsuccessfulbuild".
+         Touching "x64\Debug\zlib.lastbuildstate".
+     1>Done Building Project "D:\GitHub\Hello-world1\lpng1634\projects\vstudio\zlib\zlib.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.88
