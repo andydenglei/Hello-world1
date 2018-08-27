@@ -52,10 +52,18 @@ lpng1634/projects/vstudio/zlib/Debug/*.*
 
 lpng1634/projects/vstudio/vstudio.opensdf
 lpng1634/projects/vstudio/vstudio.sdf
-*.sdf
-lpng1634/projects/vstudio/vstudio.v11.suo
-lpng1634/projects/vstudio/libpng/x64/Debug/*.*
-*/x64/Debug/*.*
-*.log
+*.ipch
+*.suo
+*.pdb
 *.obj
+*.pchd
 *.log
+*.vspscc
+*.user
+*.bak
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+**/debug/*
+**/release/*
