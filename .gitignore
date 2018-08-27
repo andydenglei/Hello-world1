@@ -67,3 +67,4 @@ lpng1634/projects/vstudio/vstudio.sdf
 *.VC.VC.opendb
 **/debug/*
 **/release/*
+*.log
