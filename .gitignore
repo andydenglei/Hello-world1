@@ -52,6 +52,7 @@ lpng1634/projects/vstudio/zlib/Debug/*.*
 
 lpng1634/projects/vstudio/vstudio.opensdf
 lpng1634/projects/vstudio/vstudio.sdf
+*.log
 *.ipch
 *.suo
 *.pdb
@@ -67,4 +68,3 @@ lpng1634/projects/vstudio/vstudio.sdf
 *.VC.VC.opendb
 **/debug/*
 **/release/*
-*.log
