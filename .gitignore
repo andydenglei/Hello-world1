@@ -54,3 +54,5 @@ lpng1634/projects/vstudio/vstudio.opensdf
 lpng1634/projects/vstudio/vstudio.sdf
 *.sdf
 lpng1634/projects/vstudio/vstudio.v11.suo
+lpng1634/projects/vstudio/libpng/x64/Debug/*.*
+lpng1634/projects/vstudio/x64/Debug/*.*

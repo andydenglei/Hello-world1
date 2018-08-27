@@ -151,7 +151,7 @@ void auto_convert_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, in
    free(converted);
 }
 
-void rgb_to_rgba_callback(liq_color row_out[], int row_index, int width, void *user_info) 
+void rgb_to_rgba_callback(liq_color* row_out, int row_index, int width, void *user_info) 
 {
 	int i;
     unsigned char *rgb_row = ((unsigned char *)user_info) + 3*width*row_index;
@@ -165,9 +165,10 @@ void rgb_to_rgba_callback(liq_color row_out[], int row_index, int width, void *u
     }
 }
 
-int auto_convert_platte_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, int width, int height, png_bytep in, png_bytep* row_pointer_out)
+static unsigned auto_convert_platte_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, int width, int height, png_bytep in, png_bytep* row_pointer_out)
 {
 	int i;
+	unsigned liq_error = LIQ_OK;
 	liq_result *quantization_result;
 	unsigned char *raw_8bit_pixels;
 	const liq_palette *palette;
@@ -183,28 +184,31 @@ int auto_convert_platte_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_o
 		input_image = liq_image_create_rgba(handle, in, width, height, 0);
 	}
 
-    // You could set more options here, like liq_set_quality
+	// You could set more options here, like liq_set_quality
+	liq_error = liq_image_quantize(input_image, handle, &quantization_result);
+	if(liq_error) return liq_error;
+	
+	raw_8bit_pixels = (unsigned char *)malloc(pixels_size);
+	liq_error = liq_set_dithering_level(quantization_result, 1.0);
+	if(liq_error) return liq_error;
+	liq_error = liq_write_remapped_image(quantization_result, input_image, raw_8bit_pixels, pixels_size);
+	if(liq_error) return liq_error;
+	palette = liq_get_palette(quantization_result);
 
-    if (liq_image_quantize(input_image, handle, &quantization_result) != LIQ_OK) 
-	{
-        fprintf(stderr, "Quantization failed\n");
-        return 1;
-    }
-
-
-    raw_8bit_pixels = (unsigned char *)malloc(pixels_size);
-    liq_set_dithering_level(quantization_result, 1.0);
-	liq_write_remapped_image(quantization_result, input_image, raw_8bit_pixels, pixels_size);
-    palette = liq_get_palette(quantization_result);
-
-	for(i=0; i < palette->count; i++) 
+	for(i = 0; i < palette->count; i++) 
 	{
 		lodepng_palette_add(mode_out, palette->entries[i].r, palette->entries[i].g, palette->entries[i].b, palette->entries[i].a);
-    }
+	}
 
-	bytep_to_bytepp(mode_out,width,height,raw_8bit_pixels,row_pointer_out);
+	bytep_to_bytepp(mode_out, width, height, raw_8bit_pixels, row_pointer_out);
 
-	return 0;
+	// Must be freed only after you're done using the palette
+	liq_result_destroy(quantization_result);
+	liq_image_destroy(input_image);
+	liq_attr_destroy(handle);
+	free(raw_8bit_pixels);
+	
+	return liq_error;
 }
 
 void color_mode_init(LodePNGColorMode* mode, png_byte color_type, png_byte bit_depth)
