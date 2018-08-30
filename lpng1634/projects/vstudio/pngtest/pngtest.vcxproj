@@ -116,6 +116,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>false</LinkIncremental>
     <CustomBuildAfterTargets />
+    <IncludePath>C:\Users\t_dengl\Downloads\jpegsr9c\jpeg-9c;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\GitHub\Hello-world1\imagequant;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Library|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -198,7 +200,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libpng16.lib;imagequant.lib</AdditionalDependencies>
+      <AdditionalDependencies>libjpeg.lib;libpng16.lib;imagequant.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\GitHub\Hello-world1\imagequant;$(OutDir)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>

@@ -126,29 +126,32 @@ int writefile(char* filename, int h, int w, char* data)
 
 
 
-void auto_convert_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, int width, int height, png_bytep in, png_bytep* row_pointer_out)
+unsigned auto_convert_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, int width, int height, png_bytep in, png_bytep* row_pointer_out)
 {
    unsigned char* data= 0;/*uncompressed version of the IDAT chunk data*/
    unsigned char* converted;
+   unsigned error = 0;
    int bpp = lodepng_get_bpp(mode_out);
    int linebits = ((width * bpp + 7) / 8) * 8;
 
    converted = (unsigned char*)malloc((height *width * bpp + 7) / 8);
-   lodepng_convert(converted, in, mode_out, mode_in, width, height);
+   error = lodepng_convert(converted, in, mode_out, mode_in, width, height);
+   if(error) return error;
 
    if(bpp < 8 && width * bpp != linebits)
    {
 	   data  = (unsigned char*)malloc(height * ((width * bpp + 7) / 8));
 	   lodepng_add_padding_bits(data, converted, linebits, width * bpp, height);
-       bytep_to_bytepp(mode_out, width, height, data, row_pointer_out);
+	   bytep_to_bytepp(mode_out, width, height, (png_bytep)data, row_pointer_out);
 	   free(data);
    }
    else
    {
-       bytep_to_bytepp(mode_out, width, height, converted, row_pointer_out);
+	   bytep_to_bytepp(mode_out, width, height, (png_bytep)converted, row_pointer_out);
    }
 
    free(converted);
+   return error;
 }
 
 void rgb_to_rgba_callback(liq_color* row_out, int row_index, int width, void *user_info) 
@@ -165,7 +168,7 @@ void rgb_to_rgba_callback(liq_color* row_out, int row_index, int width, void *us
     }
 }
 
-static unsigned auto_convert_platte_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, int width, int height, png_bytep in, png_bytep* row_pointer_out)
+unsigned auto_convert_palette_data(LodePNGColorMode* mode_in, LodePNGColorMode* mode_out, int width, int height, png_bytep in, png_bytep* row_pointer_out)
 {
 	int i;
 	unsigned liq_error = LIQ_OK;
@@ -184,7 +187,9 @@ static unsigned auto_convert_platte_data(LodePNGColorMode* mode_in, LodePNGColor
 		input_image = liq_image_create_rgba(handle, in, width, height, 0);
 	}
 
-	// You could set more options here, like liq_set_quality
+	// Set the maximum quality as same as JPEG currently.
+	liq_set_quality(handle, 50, 76);
+	liq_set_speed(handle, 10);
 	liq_error = liq_image_quantize(input_image, handle, &quantization_result);
 	if(liq_error) return liq_error;
 	
@@ -470,15 +475,16 @@ int decode_png(char *file_path, LodePNGColorMode* mode_in, LodePNGColorMode* mod
 {
 	png_structp png_ptr;
 	png_infop   info_ptr;
-	char        buf[PNG_BYTES_TO_CHECK];
-	int         temp;
 	FILE *pic_fp;
 
 	int width;
 	int height;
-	png_byte color_type;
-	png_byte bit_depth;
-   png_byte filter_type;
+	int color_type;
+	int bit_depth;
+    int filter_type;
+    int compress_type;
+    int interlace_type;
+	unsigned error = 0;
 
 	//*******************************
     png_byte* in;
@@ -488,29 +494,34 @@ int decode_png(char *file_path, LodePNGColorMode* mode_in, LodePNGColorMode* mod
 
 	pic_fp = fopen(file_path, "rb");
 	if(pic_fp == NULL) 
-		return -1;
-
-	png_ptr  = png_create_read_struct(PNG_LIBPNG_VER_STRING, 0, 0, 0);
-	info_ptr = png_create_info_struct(png_ptr);
-
-	setjmp(png_jmpbuf(png_ptr)); 
-
-	temp = fread(buf,1,PNG_BYTES_TO_CHECK,pic_fp);
-	temp = png_sig_cmp((void*)buf, (png_size_t)0, PNG_BYTES_TO_CHECK);
-
-	if (temp!=0) 
 		return 1;
 
-	rewind(pic_fp);
-	png_init_io(png_ptr, pic_fp);
-	png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_EXPAND, 0);
+	png_ptr  = png_create_read_struct(PNG_LIBPNG_VER_STRING, 0, 0, 0);
+	if (png_ptr == NULL)
+	{
+		fclose(pic_fp);
+		return 1;
+	}
+	info_ptr = png_create_info_struct(png_ptr);
+	if (info_ptr == NULL)
+	{
+		fclose(pic_fp);
+		png_destroy_read_struct(&png_ptr, NULL, NULL);
+		return 1;
+	}
 
-	width = png_get_image_width(png_ptr, info_ptr);
-	height = png_get_image_height(png_ptr, info_ptr);
-	color_type = png_get_color_type(png_ptr,info_ptr);
-	bit_depth = png_get_bit_depth(png_ptr, info_ptr);
-	row_pointer_in = png_get_rows(png_ptr, info_ptr);
-   filter_type = png_get_filter_type(png_ptr, info_ptr);
+	if(setjmp(png_jmpbuf(png_ptr)))
+	{
+		png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
+		fclose(pic_fp);
+		return 1;
+	}
+
+
+	png_init_io(png_ptr, pic_fp);
+	png_read_info(png_ptr, info_ptr);
+
+	png_get_IHDR(png_ptr,info_ptr,&width,&height,&bit_depth,&color_type,&interlace_type,&compress_type,&filter_type);
 
 	pic_data->height = height;
 	pic_data->width = width;
@@ -525,32 +536,39 @@ int decode_png(char *file_path, LodePNGColorMode* mode_in, LodePNGColorMode* mod
 	{
 		png_destroy_read_struct(&png_ptr, &info_ptr, 0);
 		fclose(pic_fp);
-		return -1;
+		return 1;
 	}
-
+	
 	in = malloc_png_bytep(mode_in, width, height);
     bytepp_to_bytep(mode_in, width, height, in, row_pointer_in);
-	lodepng_auto_choose_color(mode_out, (unsigned char*)in, width, height, mode_in);
+	error = lodepng_auto_choose_color(mode_out, (unsigned char*)in, width, height, mode_in);
+	if(error) return error;
 	
-	//if mode_out equal mode_in, no need do anything.
-	if(lodepng_color_model_equal(mode_out, mode_in))
+	//force conversion the RGB or RGBA image to 8 bit palette file.
+	if((color_type == PNG_COLOR_TYPE_RGB || color_type == PNG_COLOR_TYPE_RGB_ALPHA) && bit_depth == 8)
 	{   
-		/*png_destroy_read_struct(&png_ptr, &info_ptr, 0);
-		fclose(pic_fp);
-		return -2;*/
-		mode_out->bitdepth = 8;
-		mode_out->colortype = LCT_PALETTE;
+		lodepng_color_mode_cleanup(mode_out);
+		color_mode_init(mode_out, LCT_PALETTE, 8);
 		row_pointer_out = malloc_png_bytepp(mode_out,width,height);
-		auto_convert_platte_data(mode_in,mode_out,width,height,in,row_pointer_out);
-		pic_data->row_pointers = row_pointer_out;
-
+		error = auto_convert_palette_data(mode_in,mode_out,width,height,in,row_pointer_out);
 	}
 	else
 	{
 		row_pointer_out = malloc_png_bytepp(mode_out, width, height);
-        auto_convert_data(mode_in, mode_out, width, height, in, row_pointer_out);
+		error = auto_convert_data(mode_in, mode_out, width, height, in, row_pointer_out);
+	}
+
+	if(error)
+	{
+		lodepng_color_mode_cleanup(mode_out);
+		lodepng_color_mode_copy(mode_out,mode_in);
+		pic_data->row_pointers = row_pointer_in;
+	}
+	else
+	{	
 		pic_data->row_pointers = row_pointer_out;
 	}
+
 	free(in);
 	//***********************************************************************************
 
@@ -651,7 +669,7 @@ void convert_png(char* file_path)
 		encode_png(file_path, mode_out, pic_data);
 	}
 
-	update_info(file_path, mode_out, pic_data);
+	update_info(file_path, mode_in, pic_data);
 	//printf("%s end\n", file_path);
 
 	free_png_bytepp(pic_data->height, pic_data->row_pointers);
