@@ -1,0 +1,111 @@
+10.50.84.64
+administrator
+
+Autodesk1
+
+Examples
+in.Pngsave(filename, compression: int, interlace: bool, pageHeight: int, profile: string, filter: int, strip: bool, background: double[]);
+
+int bitsPerPixel = b[24] & 0xff;
+if ((b[25] & 0xff) == 2) {
+bitsPerPixel *= 3;
+} else if ((b[25] & 0xff) == 6) {
+bitsPerPixel *= 4;
+}
+   png_set_IHDR(png_ptr, info_ptr, width, height, bit_depth, PNG_COLOR_TYPE_GRAY_ALPHA,
+      PNG_INTERLACE_NONE, PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE);
+
+   /* （必需）在这里设置图像的信息，宽度、高度的上限是 2^31。
+    * bit_depth 取值必需是 1、2、4、8 或者 16, 但是可用的值也依赖于 color_type。
+    * color_type 可选值有： PNG_COLOR_TYPE_GRAY、PNG_COLOR_TYPE_GRAY_ALPHA、
+    * PNG_COLOR_TYPE_PALETTE、PNG_COLOR_TYPE_RGB、PNG_COLOR_TYPE_RGB_ALPHA。
+    * interlace 可以是 PNG_INTERLACE_NONE 或 PNG_INTERLACE_ADAM7,
+    * 而 compression_type 和 filter_type 目前必需是 PNG_COMPRESSION_TYPE_BASE
+    * 和 and PNG_FILTER_TYPE_BASE。
+https://blog.csdn.net/manlinniao/article/details/29846523
+
+索引彩色图像：1，2，4或8
+灰度图像：1，2，4，8或16
+真彩色图像：8或16
+
+颜色类型：
+0：灰度图像, 1，2，4，8或16     PNG_COLOR_TYPE_GRAY
+2：真彩色图像，8或16           PNG_COLOR_TYPE_RGB
+3：索引彩色图像，1，2，4或8       PNG_COLOR_TYPE_PALETTE
+4：带α通道数据的灰度图像，8或16   PNG_COLOR_TYPE_GRAY_ALPHA
+6：带α通道数据的真彩色图像，8或16  PNG_COLOR_TYPE_RGB_ALPHA (32)
+
+
+
+color_type bit_depth
+input PNG_COLOR_TYPE_RGB_ALPHA 8
+->0：灰度图像, 1，2，4，8或16     PNG_COLOR_TYPE_GRAY
+or
+->
+3：索引彩色图像，1，2，4或8       PNG_COLOR_TYPE_PALETTE (<=8)
+-> PNG_COLOR_TYPE_RGB_ALPHA 8
+
+->0：灰度图像, 1，2，4，8或16     PNG_COLOR_TYPE_GRAY
+A black and white image can be encoded with 1 bit per pixel.
+An image with 4 levels of grey can be encoded with 2 bits per pixel
+An image with 16 levels of grey can be encoded with 4 bits per pixe
+
+->3：索引彩色图像，1，2，4或8       PNG_COLOR_TYPE_PALETTE
+An image with 4 or less unique colors can be encoded with a 4 color palette and 2 bits per pixel
+An image with 16 or less unique colors can be encoded with a 16 color palette and 4 bits per pixel
+An image with 256 or less unique colors can be encoded with a 256 color palette and 8 bits per pixel
+
+
+int writePng(unsigned char* png_file_name, unsigned char*  pixels , int width, int height, int bit_depth)
+{
+    png_structp png_ptr;  
+    png_infop info_ptr;  
+    FILE *png_file = fopen(png_file_name, "wb");  
+    if (!png_file)
+    {
+        return -1;
+    }
+    png_ptr = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);  
+    if(png_ptr == NULL)  
+    {  
+        printf("ERROR:png_create_write_struct/n"); 
+        fclose(png_file);
+        return 0;  
+    }  
+    info_ptr = png_create_info_struct(png_ptr);  
+    if(info_ptr == NULL)  
+    {  
+        printf("ERROR:png_create_info_struct/n");  
+        png_destroy_write_struct(&png_ptr, NULL);  
+        return 0;  
+    }  
+    png_init_io(png_ptr, png_file);  
+    png_set_IHDR(png_ptr, info_ptr, width, height, bit_depth, /*PNG_COLOR_TYPE_PALETTE*/PNG_COLOR_TYPE_RGB_ALPHA,  
+        PNG_INTERLACE_NONE, PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE); 
+ 
+ 
+    png_colorp palette = (png_colorp)png_malloc(png_ptr, PNG_MAX_PALETTE_LENGTH * sizeof(png_color));
+    if (!palette) {
+        fclose(png_file);
+        png_destroy_write_struct(&png_ptr, &info_ptr);
+        return false;
+    }
+    png_set_PLTE(png_ptr, info_ptr, palette, PNG_MAX_PALETTE_LENGTH);  
+    png_write_info(png_ptr, info_ptr);  
+    png_set_packing(png_ptr);
+    //这里就是图像数据了  
+    png_bytepp rows = (png_bytepp)png_malloc(png_ptr, height * sizeof(png_bytep));
+    for (int i = 0; i < height; ++i)
+    {
+        rows[i] = (png_bytep)(pixels + (i) * width * 4);
+    }
+ 
+    png_write_image(png_ptr, rows);  
+    delete[] rows;
+    png_write_end(png_ptr, info_ptr);  
+    png_free(png_ptr, palette);  
+    palette=NULL;  
+    png_destroy_write_struct(&png_ptr, &info_ptr);  
+    fclose(png_file);  
+    return 0;  
+}
